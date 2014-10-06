@@ -204,7 +204,7 @@ multComm = (HOLE GAP 0)
 \begin{exe}[even |n| implies odd |suc n|]
 Prove the following simple fact:
 \begin{spec}
-evenNoddSucN : forall (n : Nat) -> evenb n == not (oddb (suc n))
+evenNoddSucN : forall (n : Nat) -> evenb n == oddb (suc n)
 evenNoddSucN = (HOLE GAP 0)
 \end{spec}
 \end{exe}
