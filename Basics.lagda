@@ -178,8 +178,6 @@ verbose notation of $n$-aries |suc|s.
 
 \begin{code}
 {-# BUILTIN NATURAL Nat #-}
-{-# BUILTIN ZERO zero #-}
-{-# BUILTIN SUC suc #-}
 \end{code}
 
 Let's look at this in a little more detail. 
