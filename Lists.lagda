@@ -136,7 +136,7 @@ in such a way that |testNonZeros| be a type correct term.
 nonZeros : NList -> NList
 nonZeros = (HOLE GAP 0)
 
-testNonZeros : (0 , 1 , 0 , 2 , 0 , <>) == (1 , 2 , <>)
+testNonZeros : nonZeros (0 , 1 , 0 , 2 , 0 , <>) == (1 , 2 , <>)
 testNonZeros = refl
 \end{spec}
 \end{exe}
@@ -148,7 +148,7 @@ in such a way that |testOddMembers| be a type correct term.
 oddMembers : NList -> NList
 oddMembers = (HOLE GAP 0)
 
-testOddMembers : (0 , 1 , 0 , 3 , 0 , <>) == (1 , 3 , <>)
+testOddMembers : oddMembers (1 , 2 , 3 , 4 , <>) == (1 , 3 , <>)
 testOddMembers = refl
 \end{spec}
 \end{exe}
@@ -243,6 +243,12 @@ testSubset1 = refl
 
 testSubset2 : subset (2 , 3 , <>) (1 , 2 , 4 , <>) == False
 testSubset2 = refl
+
+testSubset3 : subset (2 , 3 , nil) ( 3 , 2 , 1 , nil) ≡ True
+testSubset3 = refl
+  
+testSubset4 : subset (1 , 1 , nil) (1 , 2 , 1 , nil) ≡ True
+testSubset4 = refl
 \end{spec}
 \end{exe}
 
@@ -495,7 +501,7 @@ step back and try to look for a simpler way.
 appAss4 : forall (l1 l2 l3 l4 : NList) -> l1 ++ (l2 ++ (l3 ++ l4)) == ((l1 ++ l2) ++ l3) ++ l4
 appAss4 = (HOLE GAP 0)
 
-snocApp : forall (l : NList) -> snoc n l == l ++ (n , <>)
+snocApp : forall (n : Nat)(l : NList) -> snoc n l == l ++ (n , <>)
 snocApp = (HOLE GAP 1)
 
 distrRev : forall (l1 l2 : NList) -> rev (l1 ++ l2) == rev l2 ++ rev l1
