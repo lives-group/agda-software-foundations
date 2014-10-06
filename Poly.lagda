@@ -147,7 +147,7 @@ just writing them in curly braces. The same idea is used to pass an implicit par
 Here are a few simple exercises, just like ones in the Lists chapter, for practice with polymorphism. 
 Fill in the definitions and complete the proofs below.
 \begin{spec}
-repeat : {A : Set}(n : A)(count : Nat) : List A 
+repeat : {A : Set}(n : A)(count : Nat) ->cu List A 
 repeat = (HOLE GAP 0)
 
 testRepeat : repeat True 2 == True , (True , nil)
@@ -314,10 +314,10 @@ rev (x , xs) = snoc x (rev xs)
 Now prove the following facts that state, together, that |curry| and |uncurry| are
 inverses of each other:
 \begin{spec}
-uncurryCurry : forall {A B C : Set} (f : A -> B -> C) x y -> curry (uncurry f) x y == f x y
+uncurryCurry : forall {A B C : Set} (f : (A * B) -> C)) (p : A * B) -> uncurry (curry f) p == f p
 uncurryCurry = (HOLE GAP 0)
 
-curryUncurry : forall {A B C : Set}(f : (A * B) -> C)) (p : A * B) -> uncurry (curry f) p == f p
+curryUncurry : forall {A B C : Set} (f : A -> B -> C) x y -> curry (uncurry f) x y == f x y
 curryUncurry = (HOLE GAP 1)
 \end{spec}
 \end{exe}
